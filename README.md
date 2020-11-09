@@ -1,16 +1,36 @@
 # screen_transitions
 
-A new Flutter project.
+Flutter Screen Transition Animation Example. 
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+It is very easy to has custom screen transition on Flutter, all you need to do is add a the transition type to your theme: 
 
-A few resources to get you started if this is your first Flutter project:
+```dart
+MaterialApp(
+   theme: ThemeData(
+   pageTransitionsTheme: PageTransitionsTheme(builders: {
+   TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+   TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+   }),
+...
+)
+```
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+You can also define your own custom transition, I have implemented a simple helper class that make your life easier. 
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```dart
+Navigator.of(context).push(AnimatedRoute.createRoute(destination : Screen2(), animType: AnimType.slideStart, duration: 450, curve: Curves.ease));
+```
+
+You choose one of the following types: 
+```dart
+enum AnimType{
+  slideStart, slideBottom, scale, fade, size, rotate
+}
+```
+
+You can also supply a curve although Curves.ease - which is the default - is the best IMHO
+
+- [Comments/Questions? contact me](https://www.geromino-apps.com)
+
