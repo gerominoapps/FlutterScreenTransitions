@@ -30,6 +30,8 @@ enum AnimType{
 }
 ```
 
+[![Watch the video](https://img.youtube.com/vi/k9_zrB3VmW0/maxresdefault.jpg)](https://youtu.be/k9_zrB3VmW0)
+
 You can also supply a curve although Curves.ease - which is the default - is the best IMHO
 
 - [Comments/Questions? contact me](https://www.geromino-apps.com)
