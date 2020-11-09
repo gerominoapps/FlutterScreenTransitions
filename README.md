@@ -30,6 +30,7 @@ enum AnimType{
 }
 ```
 
+Watch a demo on Youtube:
 [![Watch the video](https://img.youtube.com/vi/k9_zrB3VmW0/hqdefault.jpg)](https://youtu.be/k9_zrB3VmW0)
 
 You can also supply a curve although Curves.ease - which is the default - is the best IMHO
