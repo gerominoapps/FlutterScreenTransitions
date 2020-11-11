@@ -4,11 +4,12 @@
 ///Feel free to use this code however you like.
 ///
 import 'package:flutter/material.dart';
-import 'package:screen_transitions/presentation/common/transitions/animated_route.dart';
-import 'package:screen_transitions/presentation/screens/main/widgets/duration_slider.dart';
-import 'package:screen_transitions/presentation/screens/main/widgets/next_screen_button.dart';
-import 'package:screen_transitions/presentation/screens/main/widgets/radio_list_tile.dart';
-import 'package:screen_transitions/presentation/screens/second/second_screen.dart';
+
+import '../second/second_screen.dart';
+import 'widgets/duration_slider.dart';
+import 'widgets/next_screen_button.dart';
+import 'widgets/radio_list_tile.dart';
+import 'package:animated_route/animated_route.dart';
 
 void main() {
   runApp(MyApp());
