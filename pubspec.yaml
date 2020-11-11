@@ -1,5 +1,5 @@
-name: animated_route
-description: AnimatedRoute Helper class to assist you animate your route transitions.
+name: route_animation_helper
+description: RouteAnimationHelper class, assists you to animate your route transitions.
 homepage: https://www.geromino-apps.com
 repository: https://github.com/gerominoapps/FlutterScreenTransitions
 

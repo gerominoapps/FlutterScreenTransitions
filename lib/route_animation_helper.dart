@@ -18,7 +18,7 @@ enum AnimType{
 /// [animType] (Optional) - The type of anim to apply on the AnimatedRoute [AnimType] default value is set to [AnimType.slideStart]
 ///
 /// [duration] (Optional) - The duration of the screen transition in milliseconds, default value is set to 450.
-class AnimatedRoute{
+class RouteAnimationHelper{
   static const int DEFAULT_TRANSITION_DURATION = 450;
 
   static Route createRoute({Widget destination, Curve curve = Curves.ease, AnimType animType = AnimType.slideStart, int duration = DEFAULT_TRANSITION_DURATION} ){
