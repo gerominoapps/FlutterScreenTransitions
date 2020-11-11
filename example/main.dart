@@ -5,10 +5,11 @@
 ///
 import 'package:flutter/material.dart';
 
-import '../second/second_screen.dart';
-import 'widgets/duration_slider.dart';
-import 'widgets/next_screen_button.dart';
-import 'widgets/radio_list_tile.dart';
+
+import 'presentation/screens/main/widgets/duration_slider.dart';
+import 'presentation/screens/main/widgets/next_screen_button.dart';
+import 'presentation/screens/main/widgets/radio_list_tile.dart';
+import 'presentation/screens/second/second_screen.dart';
 import 'package:route_animation_helper/route_animation_helper.dart';
 
 void main() {
