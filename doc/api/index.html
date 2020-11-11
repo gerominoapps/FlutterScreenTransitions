@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="generator" content="made with love by dartdoc 0.36.2">
+  <meta name="description" content="route_animation_helper API docs, for the Dart programming language.">
+  <title>route_animation_helper - Dart API docs</title>
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="static-assets/github.css">
+  <link rel="stylesheet" href="static-assets/styles.css">
+  <link rel="icon" href="static-assets/favicon.png">
+
+</head>
+
+<body data-base-href=""
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="https://www.geromino-apps.com">route_animation_helper package</a></li>
+  </ol>
+  <div class="self-name">route_animation_helper</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div id="dartdoc-sidebar-left" class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+      <form class="search-sidebar" role="search">
+        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+      </form>
+    </header>
+    
+    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+      <li><a href="https://www.geromino-apps.com">route_animation_helper package</a></li>
+    </ol>
+    
+    <h5 class="hidden-xs"><span class="package-name">route_animation_helper</span> <span class="package-kind">package</span></h5>
+    <ol>
+          <li class="section-title">Libraries</li>
+          <li><a href="route_animation_helper/route_animation_helper-library.html">route_animation_helper</a></li>
+    </ol>
+  </div>
+
+  <div id="dartdoc-main-content" class="col-xs-12 col-sm-9 col-md-8 main-content">
+      <section class="desc markdown">
+        <h1 id="screen_transitions">screen_transitions</h1>
+<p>Animate routes easily with AnimatedRoute Helper class.</p>
+<h2 id="getting-started">Getting Started</h2>
+<p>It is very easy to has custom screen transition on Flutter, all you need to do is add a the transition type to your theme:</p>
+<pre class="language-dart"><code class="language-dart">MaterialApp(
+   theme: ThemeData(
+   pageTransitionsTheme: PageTransitionsTheme(builders: {
+   TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+   TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+   }),
+...
+)
+</code></pre>
+<p>You can also define your own custom transition, I have implemented a simple helper class that make your life easier.</p>
+<pre class="language-dart"><code class="language-dart">Navigator.of(context).push(RouteAnimationHelper.createRoute(destination : Screen2(), animType: AnimType.slideStart, duration: 450, curve: Curves.ease));
+</code></pre>
+<p>You choose one of the following types:</p>
+<pre class="language-dart"><code class="language-dart">enum AnimType{
+  slideStart, slideBottom, scale, fade, size, rotate
+}
+</code></pre>
+<p><img src="AnimatedRoute.gif" alt=""></p>
+<p>You can also supply a curve although Curves.ease - which is the default - is the best IMHO</p>
+<ul>
+<li><a href="https://www.geromino-apps.com">Comments/Questions? contact me</a></li>
+</ul>
+      </section>
+      
+      <section class="summary">
+          <h2>Libraries</h2>
+        <dl>
+          <dt id="route_animation_helper">
+            <span class="name"><a href="route_animation_helper/route_animation_helper-library.html">route_animation_helper</a></span>           
+          </dt>
+          <dd>
+             
+          </dd>
+        </dl>
+      </section>
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-right" class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+  </div>
+
+</main>
+
+<footer>
+  <span class="no-break">
+    route_animation_helper
+      1.0.0+1
+  </span>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="static-assets/typeahead.bundle.min.js"></script>
+<script src="static-assets/highlight.pack.js"></script>
+<script src="static-assets/URI.js"></script>
+<script src="static-assets/script.js"></script>
+
+
+</body>
+
+</html>
