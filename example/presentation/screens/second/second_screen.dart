@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Screen2 extends StatelessWidget{
-
+class Screen2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +13,10 @@ class Screen2 extends StatelessWidget{
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Welcome to Screen 2', style: TextStyle(fontSize: 18.0, color: Colors.black),)
+            Text(
+              'Welcome to Screen 2',
+              style: TextStyle(fontSize: 18.0, color: Colors.black),
+            )
           ],
         ),
       ),

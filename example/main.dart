@@ -5,7 +5,6 @@
 ///
 import 'package:flutter/material.dart';
 
-
 import 'presentation/screens/main/widgets/duration_slider.dart';
 import 'presentation/screens/main/widgets/next_screen_button.dart';
 import 'presentation/screens/main/widgets/radio_list_tile.dart';
@@ -41,13 +40,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   static const SLIDE_START = 1;
   static const SLIDE_BOTTOM = 2;
   static const FADE = 3;
   static const SIZE = 4;
   static const ROTATION = 5;
-
 
   int _selectedRadioTile;
   double _selectedDuration;
@@ -65,7 +62,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
         title: Text(widget.title),
       ),
       body: Center(
@@ -73,29 +69,64 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             NextScreenButton(onNextScreenIsPressed: onNextScreenPressed),
-            SizedBox(height: 20,),
-            RadioTile(text: "Slide Start Transition", onSelect: setSelectedRadioTile, value: SLIDE_START, selectedRadioTileValue: _selectedRadioTile,),
-            RadioTile(text: "Slide Bottom Transition", onSelect: setSelectedRadioTile, value: SLIDE_BOTTOM, selectedRadioTileValue: _selectedRadioTile,),
-            RadioTile(text: "Fade Transition", onSelect: setSelectedRadioTile, value: FADE, selectedRadioTileValue: _selectedRadioTile,),
-            RadioTile(text: "Size Transition", onSelect: setSelectedRadioTile, value: SIZE, selectedRadioTileValue: _selectedRadioTile,),
-            RadioTile(text: "Rotation Transition", onSelect: setSelectedRadioTile, value: ROTATION, selectedRadioTileValue: _selectedRadioTile,),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
+            RadioTile(
+              text: "Slide Start Transition",
+              onSelect: setSelectedRadioTile,
+              value: SLIDE_START,
+              selectedRadioTileValue: _selectedRadioTile,
+            ),
+            RadioTile(
+              text: "Slide Bottom Transition",
+              onSelect: setSelectedRadioTile,
+              value: SLIDE_BOTTOM,
+              selectedRadioTileValue: _selectedRadioTile,
+            ),
+            RadioTile(
+              text: "Fade Transition",
+              onSelect: setSelectedRadioTile,
+              value: FADE,
+              selectedRadioTileValue: _selectedRadioTile,
+            ),
+            RadioTile(
+              text: "Size Transition",
+              onSelect: setSelectedRadioTile,
+              value: SIZE,
+              selectedRadioTileValue: _selectedRadioTile,
+            ),
+            RadioTile(
+              text: "Rotation Transition",
+              onSelect: setSelectedRadioTile,
+              value: ROTATION,
+              selectedRadioTileValue: _selectedRadioTile,
+            ),
+            SizedBox(
+              height: 20,
+            ),
             Text('Transition Duration: ${_selectedDuration.round()}millis'),
-            DurationSlider(duration: _selectedDuration, minVal: 200.0, maxVal: 2000.0, divisions: 18, label: _selectedDuration.round().toString(), onChange: onDurationSelectionChanged)
+            DurationSlider(
+                duration: _selectedDuration,
+                minVal: 200.0,
+                maxVal: 2000.0,
+                divisions: 18,
+                label: _selectedDuration.round().toString(),
+                onChange: onDurationSelectionChanged)
           ],
         ),
       ),
     );
   }
 
-  onDurationSelectionChanged(double newValue){
+  onDurationSelectionChanged(double newValue) {
     setState(() {
       _selectedDuration = newValue;
     });
   }
 
   setSelectedRadioTile(int val) {
-    switch(val){
+    switch (val) {
       case SLIDE_START:
         _animType = AnimType.slideStart;
         break;
@@ -117,10 +148,11 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  onNextScreenPressed(){
+  onNextScreenPressed() {
     // You can also supply the curve param - the default is Curves.ease which in my opinion is the best choice.
-    Navigator.of(context).push(RouteAnimationHelper.createRoute(destination : Screen2(), animType: _animType, duration: _selectedDuration.round()));
+    Navigator.of(context).push(RouteAnimationHelper.createRoute(
+        destination: Screen2(),
+        animType: _animType,
+        duration: _selectedDuration.round()));
   }
 }
-
-
