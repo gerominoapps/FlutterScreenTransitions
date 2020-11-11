@@ -5,9 +5,7 @@
 ///
 import 'package:flutter/material.dart';
 
-enum AnimType{
-  slideStart, slideBottom, scale, fade, size, rotate
-}
+enum AnimType { slideStart, slideBottom, scale, fade, size, rotate }
 
 /// Helper class to generate an Animated Route for Screens transition
 ///
@@ -18,21 +16,23 @@ enum AnimType{
 /// [animType] (Optional) - The type of anim to apply on the AnimatedRoute [AnimType] default value is set to [AnimType.slideStart]
 ///
 /// [duration] (Optional) - The duration of the screen transition in milliseconds, default value is set to 450.
-class RouteAnimationHelper{
+class RouteAnimationHelper {
   static const int DEFAULT_TRANSITION_DURATION = 450;
 
-  static Route createRoute({Widget destination, Curve curve = Curves.ease, AnimType animType = AnimType.slideStart, int duration = DEFAULT_TRANSITION_DURATION} ){
+  static Route createRoute(
+      {Widget destination,
+      Curve curve = Curves.ease,
+      AnimType animType = AnimType.slideStart,
+      int duration = DEFAULT_TRANSITION_DURATION}) {
     return PageRouteBuilder(
         pageBuilder: (context, animation, anotherAnimation) {
           return destination;
         },
         transitionDuration: Duration(milliseconds: duration),
-        transitionsBuilder:
-            (context, animation, anotherAnimation, child) {
-          animation = CurvedAnimation(
-              curve: curve, parent: animation);
+        transitionsBuilder: (context, animation, anotherAnimation, child) {
+          animation = CurvedAnimation(curve: curve, parent: animation);
 
-          switch(animType){
+          switch (animType) {
             case AnimType.fade:
               return Align(
                 child: FadeTransition(
@@ -42,18 +42,14 @@ class RouteAnimationHelper{
               );
             case AnimType.slideBottom:
               return SlideTransition(
-                position: Tween(
-                    begin: Offset(0.0, 1.0),
-                    end: Offset(0.0, 0.0))
+                position: Tween(begin: Offset(0.0, 1.0), end: Offset(0.0, 0.0))
                     .animate(animation),
                 child: child,
               );
               break;
             case AnimType.slideStart:
               return SlideTransition(
-                position: Tween(
-                    begin: Offset(1.0, 0.0),
-                    end: Offset(0.0, 0.0))
+                position: Tween(begin: Offset(1.0, 0.0), end: Offset(0.0, 0.0))
                     .animate(animation),
                 child: child,
               );
@@ -74,13 +70,10 @@ class RouteAnimationHelper{
               );
             default:
               return SlideTransition(
-                position: Tween(
-                    begin: Offset(1.0, 0.0),
-                    end: Offset(0.0, 0.0))
+                position: Tween(begin: Offset(1.0, 0.0), end: Offset(0.0, 0.0))
                     .animate(animation),
                 child: child,
               );
-
           }
         });
   }
