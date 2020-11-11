@@ -1,6 +1,6 @@
 # screen_transitions
 
-Flutter Screen Transition Animation Example. 
+Animate routes easily with AnimatedRoute Helper class.
 
 ## Getting Started
 
@@ -29,6 +29,8 @@ enum AnimType{
   slideStart, slideBottom, scale, fade, size, rotate
 }
 ```
+
+![](AnimatedRoute.gif)
 
 Watch a demo on Youtube:
 
