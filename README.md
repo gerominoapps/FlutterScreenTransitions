@@ -20,7 +20,7 @@ MaterialApp(
 You can also define your own custom transition, I have implemented a simple helper class that make your life easier. 
 
 ```dart
-Navigator.of(context).push(AnimatedRoute.createRoute(destination : Screen2(), animType: AnimType.slideStart, duration: 450, curve: Curves.ease));
+Navigator.of(context).push(RouteAnimationHelper.createRoute(destination : Screen2(), animType: AnimType.slideStart, duration: 450, curve: Curves.ease));
 ```
 
 You choose one of the following types: 
@@ -31,10 +31,6 @@ enum AnimType{
 ```
 
 ![](AnimatedRoute.gif)
-
-Watch a demo on Youtube:
-
-[![Watch the video](https://img.youtube.com/vi/k9_zrB3VmW0/hqdefault.jpg)](https://youtu.be/k9_zrB3VmW0)
 
 You can also supply a curve although Curves.ease - which is the default - is the best IMHO
 

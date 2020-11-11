@@ -9,7 +9,7 @@ import '../second/second_screen.dart';
 import 'widgets/duration_slider.dart';
 import 'widgets/next_screen_button.dart';
 import 'widgets/radio_list_tile.dart';
-import 'package:animated_route/animated_route.dart';
+import 'package:route_animation_helper/route_animation_helper.dart';
 
 void main() {
   runApp(MyApp());
@@ -118,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   onNextScreenPressed(){
     // You can also supply the curve param - the default is Curves.ease which in my opinion is the best choice.
-    Navigator.of(context).push(AnimatedRoute.createRoute(destination : Screen2(), animType: _animType, duration: _selectedDuration.round()));
+    Navigator.of(context).push(RouteAnimationHelper.createRoute(destination : Screen2(), animType: _animType, duration: _selectedDuration.round()));
   }
 }
 
