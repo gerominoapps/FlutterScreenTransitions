@@ -43,8 +43,9 @@ class _MyHomePageState extends State<MyHomePage> {
   static const SLIDE_START = 1;
   static const SLIDE_BOTTOM = 2;
   static const FADE = 3;
-  static const SIZE = 4;
+  static const SCALE = 4;
   static const ROTATION = 5;
+  static const CUBIC = 6;
 
   int _selectedRadioTile;
   double _selectedDuration;
@@ -91,15 +92,21 @@ class _MyHomePageState extends State<MyHomePage> {
               selectedRadioTileValue: _selectedRadioTile,
             ),
             RadioTile(
-              text: "Size Transition",
+              text: "Scale Transition",
               onSelect: setSelectedRadioTile,
-              value: SIZE,
+              value: SCALE,
               selectedRadioTileValue: _selectedRadioTile,
             ),
             RadioTile(
               text: "Rotation Transition",
               onSelect: setSelectedRadioTile,
               value: ROTATION,
+              selectedRadioTileValue: _selectedRadioTile,
+            ),
+            RadioTile(
+              text: "Cubic Transition",
+              onSelect: setSelectedRadioTile,
+              value: CUBIC,
               selectedRadioTileValue: _selectedRadioTile,
             ),
             SizedBox(
@@ -136,11 +143,14 @@ class _MyHomePageState extends State<MyHomePage> {
       case FADE:
         _animType = AnimType.fade;
         break;
-      case SIZE:
-        _animType = AnimType.size;
+      case SCALE:
+        _animType = AnimType.scale;
         break;
       case ROTATION:
         _animType = AnimType.rotate;
+        break;
+      case CUBIC:
+        _animType = AnimType.cubic;
         break;
     }
     setState(() {
@@ -151,6 +161,8 @@ class _MyHomePageState extends State<MyHomePage> {
   onNextScreenPressed() {
     // You can also supply the curve param - the default is Curves.ease which in my opinion is the best choice.
     Navigator.of(context).push(RouteAnimationHelper.createRoute(
+        // current page is mandatory only if you are using cubic animation.
+        currentPage: this.widget,
         destination: Screen2(),
         animType: _animType,
         duration: _selectedDuration.round()));
