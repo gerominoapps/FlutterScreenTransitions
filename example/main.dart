@@ -164,7 +164,8 @@ class _MyHomePageState extends State<MyHomePage> {
         // current page is mandatory only if you are using cubic animation.
         currentPage: this.widget,
         destination: Screen2(),
-        animType: _animType,
-        duration: _selectedDuration.round()));
+        animType: AnimType.cubic,
+        cubicBackgroundColor: Colors.white,
+        duration: 400));
   }
 }
