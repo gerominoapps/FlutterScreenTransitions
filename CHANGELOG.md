@@ -1,3 +1,5 @@
+#### [1.0.0+5] - Added Size Animation.
+
 #### [1.0.0+4] - Added Cubic Animation.
 
 To use it you need to supply the current screen, you can also change the background color of the transition.
@@ -18,4 +20,4 @@ Navigator.of(context).push(RouteAnimationHelper.createRoute(
 #### [1.0.0+2] - Added Dart docs.
 
 #### [1.0.0+1] - Release.
-* First Version, Included 5 transitions types: slideStart, slideBottom, scale, fade, size, rotate
+* First Version, Included 5 transitions types: slideStart, slideBottom, scale, fade, rotate

@@ -26,7 +26,7 @@ Navigator.of(context).push(RouteAnimationHelper.createRoute(destination : Screen
 You choose one of the following types: 
 ```dart
 enum AnimType{
-  slideStart, slideBottom, scale, fade, size, rotate
+  slideStart, slideBottom, scale, size, fade, rotate, cubic
 }
 ```
 

@@ -10,11 +10,12 @@ import 'dart:math';
 /// 
 /// [AnimType.slideStart] - enter the next screen sliding from the side of the screen.
 /// [AnimType.slideBottom] - enter the next screen from the bottom of the screen.
-/// [AnimType.scale] - opens the next screen from the middle of the screen and expanding to the top and bottom of the screen.
+/// [AnimType.size] - opens the next screen from the middle of the screen and expanding to the top and bottom of the screen.
+/// [AnimType.scale] - scales the next screen from the center till full screen.
 /// [AnimType.fade] - opens the next screen by fading it in.
 /// [AnimType.rotate] - rotates the next screen 360 degrees.
 /// [AnimType.cubic] - 3D cubic animation between screens.
-enum AnimType { slideStart, slideBottom, scale, fade, rotate, cubic }
+enum AnimType { slideStart, slideBottom, scale, size, fade, rotate, cubic }
 
 /// Helper class to generate an Animated Route for Screens transition
 ///
@@ -67,12 +68,19 @@ class RouteAnimationHelper {
                 child: child,
               );
               break;
-            case AnimType.scale:
+            case AnimType.size:
               return Align(
                 child: SizeTransition(
                   sizeFactor: animation,
                   child: child,
                   axisAlignment: 0.0,
+                ),
+              );
+            case AnimType.scale:
+              return Align(
+                child: ScaleTransition(
+                  scale: animation,
+                  child: child,
                 ),
               );
               break;
