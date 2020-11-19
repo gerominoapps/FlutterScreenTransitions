@@ -48,7 +48,6 @@ class _MyHomePageState extends State<MyHomePage> {
   static const ROTATION = 6;
   static const CUBIC = 7;
 
-
   int _selectedRadioTile;
   double _selectedDuration;
   AnimType _animType;
