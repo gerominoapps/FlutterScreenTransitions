@@ -9,12 +9,12 @@ class DurationSlider extends StatelessWidget {
   final Function onChange;
 
   DurationSlider(
-      {this.duration,
-      this.minVal,
-      this.maxVal,
-      this.divisions,
-      this.label,
-      this.onChange});
+      {required this.duration,
+        required this.minVal,
+        required this.maxVal,
+        required this.divisions,
+        required this.label,
+        required this.onChange});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class DurationSlider extends StatelessWidget {
         max: maxVal,
         divisions: divisions,
         label: label,
-        onChanged: onChange,
+        onChanged: onChange as void Function(double)?,
       ),
     );
   }
