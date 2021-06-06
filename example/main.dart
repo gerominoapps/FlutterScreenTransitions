@@ -31,9 +31,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, this.title}) : super(key: key);
 
-  final String title;
+  final String? title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -43,12 +43,14 @@ class _MyHomePageState extends State<MyHomePage> {
   static const SLIDE_START = 1;
   static const SLIDE_BOTTOM = 2;
   static const FADE = 3;
-  static const SIZE = 4;
-  static const ROTATION = 5;
+  static const SCALE = 4;
+  static const SIZE = 5;
+  static const ROTATION = 6;
+  static const CUBIC = 7;
 
-  int _selectedRadioTile;
-  double _selectedDuration;
-  AnimType _animType;
+  int? _selectedRadioTile;
+  double? _selectedDuration;
+  AnimType _animType = AnimType.slideStart;
 
   @override
   void initState() {
@@ -62,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(widget.title != null ? widget.title! : ""),
       ),
       body: Center(
         child: Column(
@@ -91,6 +93,12 @@ class _MyHomePageState extends State<MyHomePage> {
               selectedRadioTileValue: _selectedRadioTile,
             ),
             RadioTile(
+              text: "Scale Transition",
+              onSelect: setSelectedRadioTile,
+              value: SCALE,
+              selectedRadioTileValue: _selectedRadioTile,
+            ),
+            RadioTile(
               text: "Size Transition",
               onSelect: setSelectedRadioTile,
               value: SIZE,
@@ -102,16 +110,22 @@ class _MyHomePageState extends State<MyHomePage> {
               value: ROTATION,
               selectedRadioTileValue: _selectedRadioTile,
             ),
+            RadioTile(
+              text: "Cubic Transition",
+              onSelect: setSelectedRadioTile,
+              value: CUBIC,
+              selectedRadioTileValue: _selectedRadioTile,
+            ),
             SizedBox(
               height: 20,
             ),
-            Text('Transition Duration: ${_selectedDuration.round()}millis'),
+            Text('Transition Duration: ${_selectedDuration?.round()}millis'),
             DurationSlider(
-                duration: _selectedDuration,
+                duration: _selectedDuration != null ? _selectedDuration! : 300.0,
                 minVal: 200.0,
                 maxVal: 2000.0,
                 divisions: 18,
-                label: _selectedDuration.round().toString(),
+                label: _selectedDuration != null ? _selectedDuration!.round().toString() : "NONE",
                 onChange: onDurationSelectionChanged)
           ],
         ),
@@ -136,11 +150,17 @@ class _MyHomePageState extends State<MyHomePage> {
       case FADE:
         _animType = AnimType.fade;
         break;
+      case SCALE:
+        _animType = AnimType.scale;
+        break;
       case SIZE:
         _animType = AnimType.size;
         break;
       case ROTATION:
         _animType = AnimType.rotate;
+        break;
+      case CUBIC:
+        _animType = AnimType.cubic;
         break;
     }
     setState(() {
@@ -151,8 +171,10 @@ class _MyHomePageState extends State<MyHomePage> {
   onNextScreenPressed() {
     // You can also supply the curve param - the default is Curves.ease which in my opinion is the best choice.
     Navigator.of(context).push(RouteAnimationHelper.createRoute(
+        // current page is mandatory only if you are using cubic animation.
+        currentPage: this.widget,
         destination: Screen2(),
         animType: _animType,
-        duration: _selectedDuration.round()));
+        duration: _selectedDuration != null ? _selectedDuration!.round() : 300));
   }
 }

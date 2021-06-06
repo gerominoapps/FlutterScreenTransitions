@@ -4,7 +4,7 @@ Animate routes easily with AnimatedRoute Helper class.
 
 ## Getting Started
 
-It is very easy to has custom screen transition on Flutter, all you need to do is add a the transition type to your theme: 
+Flutter allows you to use pre-defined global transitions for example:
 
 ```dart
 MaterialApp(
@@ -17,7 +17,7 @@ MaterialApp(
 )
 ```
 
-You can also define your own custom transition, I have implemented a simple helper class that make your life easier. 
+You can customize transitions by supplying your own route, I have implemented a simple helper with pre-defined routes to make your life a bit easier.
 
 ```dart
 Navigator.of(context).push(RouteAnimationHelper.createRoute(destination : Screen2(), animType: AnimType.slideStart, duration: 450, curve: Curves.ease));
@@ -26,7 +26,7 @@ Navigator.of(context).push(RouteAnimationHelper.createRoute(destination : Screen
 You choose one of the following types: 
 ```dart
 enum AnimType{
-  slideStart, slideBottom, scale, fade, size, rotate
+  slideStart, slideBottom, scale, size, fade, rotate, cubic
 }
 ```
 
