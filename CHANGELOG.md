@@ -1,3 +1,5 @@
+#### [2.0.0+6] - Support Null Safety.
+
 #### [1.0.0+5] - Added Size Animation.
 
 #### [1.0.0+4] - Added Cubic Animation.
