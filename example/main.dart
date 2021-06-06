@@ -44,8 +44,9 @@ class _MyHomePageState extends State<MyHomePage> {
   static const SLIDE_BOTTOM = 2;
   static const FADE = 3;
   static const SCALE = 4;
-  static const ROTATION = 5;
-  static const CUBIC = 6;
+  static const SIZE = 5;
+  static const ROTATION = 6;
+  static const CUBIC = 7;
 
   int _selectedRadioTile;
   double _selectedDuration;
@@ -98,6 +99,12 @@ class _MyHomePageState extends State<MyHomePage> {
               selectedRadioTileValue: _selectedRadioTile,
             ),
             RadioTile(
+              text: "Size Transition",
+              onSelect: setSelectedRadioTile,
+              value: SIZE,
+              selectedRadioTileValue: _selectedRadioTile,
+            ),
+            RadioTile(
               text: "Rotation Transition",
               onSelect: setSelectedRadioTile,
               value: ROTATION,
@@ -145,6 +152,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case SCALE:
         _animType = AnimType.scale;
+        break;
+      case SIZE:
+        _animType = AnimType.size;
         break;
       case ROTATION:
         _animType = AnimType.rotate;
