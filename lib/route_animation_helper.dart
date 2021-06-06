@@ -34,8 +34,8 @@ class RouteAnimationHelper {
   static const int DEFAULT_TRANSITION_DURATION = 450;
 
   static Route createRoute(
-      {Widget currentPage,
-      Widget destination,
+      {required Widget currentPage,
+      required Widget destination,
       Curve curve = Curves.ease,
       AnimType animType = AnimType.slideStart,
       int duration = DEFAULT_TRANSITION_DURATION,

@@ -7,7 +7,7 @@ class RadioTile extends StatelessWidget {
   final text;
 
   RadioTile(
-      {this.value, this.text, this.onSelect, this.selectedRadioTileValue});
+      {this.value, this.text,required this.onSelect, this.selectedRadioTileValue});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class RadioTile extends StatelessWidget {
               fontWeight: selectedRadioTileValue == value
                   ? FontWeight.bold
                   : FontWeight.normal)),
-      onChanged: (val) {
+      onChanged: (dynamic val) {
         onSelect(val);
       },
       activeColor: Colors.blueAccent,

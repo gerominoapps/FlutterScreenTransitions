@@ -31,9 +31,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, this.title}) : super(key: key);
 
-  final String title;
+  final String? title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -48,9 +48,9 @@ class _MyHomePageState extends State<MyHomePage> {
   static const ROTATION = 6;
   static const CUBIC = 7;
 
-  int _selectedRadioTile;
-  double _selectedDuration;
-  AnimType _animType;
+  int? _selectedRadioTile;
+  double? _selectedDuration;
+  AnimType _animType = AnimType.slideStart;
 
   @override
   void initState() {
@@ -64,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(widget.title != null ? widget.title! : ""),
       ),
       body: Center(
         child: Column(
@@ -119,13 +119,13 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(
               height: 20,
             ),
-            Text('Transition Duration: ${_selectedDuration.round()}millis'),
+            Text('Transition Duration: ${_selectedDuration?.round()}millis'),
             DurationSlider(
-                duration: _selectedDuration,
+                duration: _selectedDuration != null ? _selectedDuration! : 300.0,
                 minVal: 200.0,
                 maxVal: 2000.0,
                 divisions: 18,
-                label: _selectedDuration.round().toString(),
+                label: _selectedDuration != null ? _selectedDuration!.round().toString() : "NONE",
                 onChange: onDurationSelectionChanged)
           ],
         ),
@@ -175,6 +175,6 @@ class _MyHomePageState extends State<MyHomePage> {
         currentPage: this.widget,
         destination: Screen2(),
         animType: _animType,
-        duration: _selectedDuration.round()));
+        duration: _selectedDuration != null ? _selectedDuration!.round() : 300));
   }
 }

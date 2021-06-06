@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NextScreenButton extends StatelessWidget {
-  final Function onNextScreenIsPressed;
+  final Function? onNextScreenIsPressed;
 
   NextScreenButton({this.onNextScreenIsPressed});
 
@@ -13,7 +13,7 @@ class NextScreenButton extends StatelessWidget {
         elevation: 6,
         padding: EdgeInsets.all(20),
         color: Theme.of(context).primaryColor,
-        onPressed: onNextScreenIsPressed,
+        onPressed: onNextScreenIsPressed as void Function()?,
         child: Text(
           'Next Screen Please',
           style: TextStyle(color: Colors.white, fontSize: 18.0),
