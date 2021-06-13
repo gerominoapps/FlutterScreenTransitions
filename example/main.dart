@@ -172,6 +172,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // You can also supply the curve param - the default is Curves.ease which in my opinion is the best choice.
     Navigator.of(context).push(RouteAnimationHelper.createRoute(
         // current page is mandatory only if you are using cubic animation.
+        buildContext: context,
         currentPage: this.widget,
         destination: Screen2(),
         animType: _animType,
