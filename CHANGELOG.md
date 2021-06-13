@@ -1,3 +1,5 @@
+#### [2.0.0+7] - Added mandatory BuildContext param to allow access to root context, for example for using Theme.of(context) from destination page.
+
 #### [2.0.0+6] - Support Null Safety.
 
 #### [1.0.0+5] - Added Size Animation.
